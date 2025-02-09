@@ -3,30 +3,32 @@ import React from "react";
 interface User {
   id: number;
   name: string;
+  email: string;
 }
 
-const UsersPage = () => {
-  // const response = await fetch("https://jsonplaceholder.typicode.com/users");
-  // const users: User[] = await response.json();
-
-  const users: User[] = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-    },
-  ];
+const UsersPage = async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users: User[] = await response.json();
 
   return (
     <>
       <h1>Users</h1>
-      <ul>
-        {/* {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
-        ))} */}
-        <li>hi</li>
-        <li>bye</li>
-        <li>why</li>
-      </ul>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };

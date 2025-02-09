@@ -1,7 +1,8 @@
 import React from "react";
 import AddToCart from "./AddToCart";
+// import styles from "./ProductCard.module.css";
 
-const ProductCards = () => {
+const ProductCard = () => {
   return (
     <div>
       <AddToCart />
@@ -9,4 +10,4 @@ const ProductCards = () => {
   );
 };
 
-export default ProductCards;
+export default ProductCard;
